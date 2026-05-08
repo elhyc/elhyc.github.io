@@ -7909,7 +7909,7 @@ when measuring the observable $\textbf{proj}_{ \ket{0} }$ in this state, we get 
 <p>Since we can take composite quantum systems, we can consider the quantum system $\mathcal{H}(n) = \mathcal{H}_{2^{n}} = \mathcal{H} \otimes \cdots \otimes \mathcal{H}$ (the $n$-fold tensor product). This is a $2^{n}$-dimensional Hilbert space, and has the composite computational basis $ \ket{ i_{1}  \cdots i_{n} } = \ket{ i_{1} } \otimes \ket{ i_{2} } \otimes \cdots \otimes \ket{i_{n} }$ with $i_{j} = 0, 1$. We can encode bitstrings of length $n$ as computational basis states in the composite quantum system $\mathcal{H}(n)$.
 We will refer to any $n$-fold tensor product of qubits as a <em>qubit system</em>.</p>
 <p>That's nice and all... but "why"??</p>
-<p>We were originally interested in computation and information processing. This essentially boils down to bitstrings of arbitrary length and manipulations of bitstrings. Then, we described a bridge between physical manifestations of bits by way of encoding bits and bitstrings into physical systems. This lead us to describe the smallest type of physical system into which classical information can be encoded. One might ask: are we straying too far away from our original interest in information processing by diving into all this quantum mechanics? Did we just describe a very complicated way to encode $0$ and $1$ into some kind of physical system? What's wrong with light switches?</p>
+<p>We were originally interested in computation and information processing. This essentially boils down to bitstrings of arbitrary length and manipulations of bitstrings. Then, we described a bridge between physical manifestations of bits by way of encoding bits and bitstrings into physical systems. This led us to describe the smallest type of physical system into which classical information can be encoded. One might ask: are we straying too far away from our original interest in information processing by diving into all this quantum mechanics? Did we just describe a very complicated way to encode $0$ and $1$ into some kind of physical system? What's wrong with light switches?</p>
 <p>Simply put, the quantum formalism is much more expressive than the classical formalism. Not only can we encode classical bitstrings as computational basis states of a qubit system, but we also get for free (as a consequence of this encoding) an interpretation of a general quantum state $\ket{\psi}$ in the system as a superposition of classical bitstrings. The squared-norms of the coordinates of $\ket{\psi}$ with respect to the computational basis $\{ \ket{ i_{1} \cdots i_{n} } \}_{i_{j} = 0,1}$ will always describe probability distributions for measurement outcomes of measuring $\ket{\psi}$ with respect to the computational basis (i.e. with respect to their corresponding projection operators, which are observables). However, there is much more than that. One can consider these probability distributions as a "classical shadow" of what it means for $\ket{\psi}$ to be a quantum state-vector which is in a superposition of the computational basis states.</p>
 <p>While a probability distribution can always be associated to a state-vector (since we have a distinguished computational basis), it is <em>not</em> correct to describe a state-vector itself as a probability distribution over possible states. Recall that the coefficients $a_{j}^{\psi}$ are complex numbers -- to take the squared norm is inherently providing truncated information. Furthermore, possibly more importantly, a state-vector provides a probability distribution <em>only when an observable is specified</em>. In a qubit system, we have a global computational basis. This gives us a "default" collection of observables to measure state-vectors against, but these measurement proabilities are still something defined only once we have made such a choice.</p>
 <p>So, state-vectors in quantum systems act more like a "lift" of classical probability distributions to quantum states. In fact, quantum formalism describes both state-vectors and the dynamics of state-vectors. We have a good understanding of how state-vectors interact with other states and with (other) physical systems. A solid understanding of the dynamics of state-vectors will allow us to design arbitrarily expressive quantum circuits. An interesting consequence of the dynamics of measurements in a quantum system is the notion of entanglement. Quantum entanglement is a feature of these quantum dynamics that can be heavily utilized to design interesting quantum circuits.
@@ -8037,6 +8037,34 @@ $$ |0\rangle$$
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 $$ |00\rangle$$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2a573259">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e82ada16">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 </div>
 </div>
 </div>
