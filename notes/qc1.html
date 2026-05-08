@@ -7805,8 +7805,8 @@ a.anchor-link {
 <p>$$\renewcommand{\ket}[1]{|#1\rangle}$$
 $$\renewcommand{\bra}[1]{\langle#1|}$$</p>
 <h1 id="Quantum-Computing:-a-crash-course-(Part-I:-Introduction)">Quantum Computing: a crash course (Part I: Introduction)<a class="anchor-link" href="#Quantum-Computing:-a-crash-course-(Part-I:-Introduction)">¶</a></h1><p>In this mini-course, we will try to understand the core elements of quantum computing from a "ground-up" approach. This means that while we may not cover everything that is new and exciting in the field, we will emphasize
-developing a better understanding of "what is going on".</p>
-<h2 id="The-abstraction-of-information-and-computation">The abstraction of information and computation<a class="anchor-link" href="#The-abstraction-of-information-and-computation">¶</a></h2><p>The subject of quantum computing sometimes comes across as "mysterious", often because of the reputation that quantum mechanics itself has of being  "weird" or "mysterious". It may seem contrary to the name of "quantum computing", but in fact one does not need to know much physics to "understand" the fundamentals of quantum computing. <font size="1">Caveat: this may depend on what you mean by "physics"</font></p>
+developing a better understanding of what is going on.</p>
+<h2 id="The-abstraction-of-information-and-computation">The abstraction of information and computation<a class="anchor-link" href="#The-abstraction-of-information-and-computation">¶</a></h2><p>The subject of quantum computing sometimes comes across as "mysterious", often because of the reputation that quantum mechanics itself has of being  "weird" or "mysterious". It may seem contrary to the name of "quantum computing", but in fact one does not need to know much (classical) physics to "understand" the fundamentals of quantum computing. <font size="1">Caveat: this may depend on what you mean by "physics"</font></p>
 <blockquote>
 <p>In this mini-course, we will try to understand quantum computing as a matter of processing "(quantum) information".</p>
 </blockquote>
@@ -8055,7 +8055,7 @@ $$ |00\rangle$$
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a1a380ba">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c25f0229">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8288,7 +8288,7 @@ $$</p>
 <p>$$\renewcommand{\ket}[1]{|#1\rangle}$$
 $$\renewcommand{\bra}[1]{\langle#1|}$$</p>
 <p>Now that we have some $1$-qubit gates up our sleeve, we can explore some quantum circuits that are slightly more interesting.
-Recall that the Hadamard states $\ket{+}$ and $\ket{-}$ can be measured in the $X$-basis, resulting in an equally likely outcome of either $1$ or $-1$.</p>
+Recall that the Hadamard states $\ket{+}$ and $\ket{-}$ can be measured in the $Z$-basis, resulting in an equally likely outcome of either $1$ or $-1$.</p>
 </div>
 </div>
 </div>
@@ -8559,7 +8559,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$$\renewcommand{\ket}[1]{|#1\rangle}$$
 $$\renewcommand{\bra}[1]{\langle#1|}$$</p>
-<h3 id="A-more-interesting-quantum-circuit...Preparing-an-entangled-state.">A more interesting quantum circuit...Preparing an entangled state.<a class="anchor-link" href="#A-more-interesting-quantum-circuit...Preparing-an-entangled-state.">¶</a></h3><p>We have enough now to define a $2$-qubit quantum circuit, which takes the input state $\ket{00}$ to an \em{entangled state}. We will explain what this "entangled" interpretation is later, but for now we will simply demonstrate the circuit and describe explicitly what it does.</p>
+<h3 id="A-more-interesting-quantum-circuit...Preparing-an-entangled-state.">A more interesting quantum circuit...Preparing an entangled state.<a class="anchor-link" href="#A-more-interesting-quantum-circuit...Preparing-an-entangled-state.">¶</a></h3><p>We have enough now to define a $2$-qubit quantum circuit, which takes the input state $\ket{00}$ to an <em>entangled state</em>. We will explain what this "entangled" interpretation is later, but for now we will simply demonstrate the circuit and describe explicitly what it does.</p>
 <p>The $2$-qubit state $\ket{\Phi^{+}} = \frac{1}{\sqrt{2}} { \ket{00}  + \ket{11} }$ is called a <em>Bell state</em>, or an EPR pair. Our goal is to write Qiskit implementation of a
 circuit that takes $\ket{00} \to \ket{\Phi^{+}}$. The code is presented below:</p>
 </div>
