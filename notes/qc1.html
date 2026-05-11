@@ -8041,34 +8041,6 @@ $$ |00\rangle$$
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2a573259">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=564521df">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d53eb80">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8667,7 +8639,126 @@ Exercise: what does this circuit do to the other computational basis states?</p>
 <p>$$\renewcommand{\ket}[1]{|#1\rangle}$$
 $$\renewcommand{\bra}[1]{\langle#1|}$$
 Why is the Bell state $\ket{\Phi^{+}}$ called an entangled state? Recall that a tensor in the tensor product $\mathcal{H}_{1} \otimes \mathcal{H}_{2} \otimes \cdots \otimes \mathcal{H}_{k}$ is <em>decomposable</em> is it can be written in the form $v_{1} \otimes v_{2} \cdots \otimes v_{k}$ for vectors $v_{i} \in \mathcal{H}_{i}$. In the interpretation of quantum mechanics, this is to say that a state in a composite system, can be written as $k$ different states $v_{1},\cdots, v_{k}$ independently occuring in each state space $\mathcal{H}_{i}$. If a tensor is not decomposable, this means that we are considering a state of a composite system that cannot be expressed in terms of a composition of $k$ individual states from the systems $\mathcal{H}_{i}$.</p>
-<p>So, when a composite system (such as a $2$-qubit system) is in an entangled state, then the joint state cannot be expressed as a product of states of the individual systems that make up the composite system. We will revisit again in the next lecture.</p>
+<p>So, when a composite system (such as a $2$-qubit system) is in an entangled state, then the joint state cannot be expressed as a product of states of the individual systems that make up the composite system.</p>
+<h3 id="More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">More fun with entanglement: dense coding and quantum "teleportation"<a class="anchor-link" href="#More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">¶</a></h3><p>To illustrate more of the non-trivial novelty that comes along with entanglement, we now explain two popular applications of the Bell state: dense coding and quantum teleportation. Dense coding and quantum teleportation are sort of orthogonal to each other. Dense coding is about transmitting $2$ classical bits worth of information through the transmission of a single qubit, when the sender and receiver already share a pair of entangled qubits (in a Bell state together). Quantum teleportation is about using $2$ classical bits of information in order to transmit the entire state of a qubit.
+The fact that teleportation is possible is interesting: in spite of the <em>no-cloning theorem</em>, it is still possible to transmit the state of an unknown qubit to a receiver. Note that we can infer from the no-cloning theorem that when the qubit is transmitted to the reciever, the original qubit carried by the sender must be in a different state by the end of the process.</p>
+<p>The schematic for both protocols are similar, and have the same initial set-up. In order to execute these protocols, Alice (the sender) and Bob (the receiver) must initially be sharing a pair of qubits that have been prepared in a joint system to be in a Bell state. That is, suppose we have a pair of qubits, and we put the composite system into the state</p>
+<p>$$
+\ket{\Phi^{+}} = \frac{ \ket{00} + \ket{11} }{\sqrt{2}}.
+$$</p>
+<p>Then one of the physical qubits is sent to Alice, and the other is sent to Bob. To make this explicit in the notation, we can write $\ket{\Phi^{+}} = \frac{ \ket{0_{A}} \ket{0_{B}} + \ket{1_{A}} \ket{1_{B}} } {\sqrt{2}}$.</p>
+<p>Then, as long as we don't interfere with the entangled joint state shared by the pair of qubits, the idea is for Alice and Bob to leverage this entangled state in order to achieve either dense coding or teleportation.</p>
+<h4 id="-Dense-coding-"><b> Dense coding </b><a class="anchor-link" href="#-Dense-coding-">¶</a></h4><p>Suppose that Alice wants to transmit two classical bits of information to Bob. She can either transmit $00$, $01$, $10$ or $11$. Depending on which of the four options Alice wants to send, Alice will put her half of the entangled qubit pair through a specific gate. Note that as Alice only has access to one of the two qubits (say that they are ordered so that Alice's qubit is first in the qubit ordering of the system), she can only apply gates of the form $U \otimes I$ to the joint system.</p>
+<h5 id="-What-Alice-does:-"><u> What Alice does: </u><a class="anchor-link" href="#-What-Alice-does:-">¶</a></h5><table>
+<thead>
+<tr>
+<th>Desired transmission</th>
+<th>Gate applied by Alice</th>
+<th>resulting state of the entangled pair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$00$</td>
+<td>$I \otimes I$</td>
+<td>$\ket{\Phi^{+}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}} $</td>
+</tr>
+<tr>
+<td>$01$</td>
+<td>$ X \otimes I$</td>
+<td>$\frac{ \ket{10} + \ket{01} }{\sqrt{2}}$</td>
+</tr>
+<tr>
+<td>$10$</td>
+<td>$ Z \otimes I$</td>
+<td>$\ket{\Phi^{-}} = \frac{ \ket{00} - \ket{11} }{\sqrt{2}}$</td>
+</tr>
+<tr>
+<td>$11$</td>
+<td>$Y \otimes I$</td>
+<td>$\frac{ -\ket{10} + \ket{01} }{\sqrt{2}}$</td>
+</tr>
+</tbody>
+</table>
+<p>After applying the appropriate gate to her qubit in her half of the entangled pair, she sends her qubit to Bob.</p>
+<h5 id="-What-Bob-does:-"><u> What Bob does: </u><a class="anchor-link" href="#-What-Bob-does:-">¶</a></h5><p>Once Bob receives Alice's qubit, he is in physical possession of both the qubits that make up the entangled pair. His task now is to first apply a CNOT/CX gate, followed by a $H \otimes I$. Both gates are to be applied to the composite system which make up the entangled pair. Depending on the state of the entangled pair, as prepared by Alice before she sent her qubit to Bob, the result of this gate sequence will have a different outcome.</p>
+<p>$$\frac{\ket{00} + \ket{11}}{\sqrt{2}}  \xrightarrow{ CX  }\frac{\ket{00} + \ket{10}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1} ) \otimes \ket{0}  \xrightarrow{ H \otimes I} \ket{00}$$</p>
+<p>$$\frac{ \ket{10} + \ket{01} }{\sqrt{2}} \xrightarrow{CX } \frac{\ket{11} + \ket{01}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1} ) \otimes \ket{1}  \xrightarrow{H \otimes I} \ket{01}$$</p>
+<p>$$\frac{ \ket{00} - \ket{11} }{\sqrt{2}} \xrightarrow{CX } \frac{\ket{00} - \ket{10}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} - \ket{1} ) \otimes \ket{0} \xrightarrow{ H \otimes I} \ket{10}$$</p>
+<p>$$\frac{ -\ket{10} + \ket{01} }{\sqrt{2}} \xrightarrow{CX } -\frac{\ket{11} + \ket{01}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} - \ket{1} ) \otimes \ket{1} \xrightarrow{ H \otimes I} \ket{11}$$</p>
+<!-- 
+| Input state of the pair                | State after CNOT                                                                          |State after $H \otimes I$ gate      | 
+|----------------------------------------|-------------------------------------------------------------------------------------------|------------------------------------| 
+|$\frac{\ket{00} + \ket{11}}{\sqrt{2}} $|$\frac{\ket{00} + \ket{10}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1} ) \otimes \ket{0}$|$\ket{00}$|
+|$\frac{ \ket{10} + \ket{01} }{\sqrt{2}}$|$\frac{\ket{11} + \ket{01}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} + \ket{1} ) \otimes \ket{1} $|$\ket{01}$|
+|$\ket{\Phi^{-}} = \frac{ \ket{00} - \ket{11} }{\sqrt{2}}$| $\frac{\ket{00} - \ket{10}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} - \ket{1} ) \otimes \ket{0}$|$\ket{10}$|
+|$\frac{ -\ket{10} + \ket{01} }{\sqrt{2}}$|$-\frac{\ket{11} + \ket{01}}{\sqrt{2}} = \frac{1}{\sqrt{2}}( \ket{0} - \ket{1} ) \otimes \ket{1}$|$\ket{11}$|
+ -->
+<p>It is instructive to understand that this process is simply an example of "uncomputing". We can summarize the above protocol in the following way:
+the 2 classical bits are encoded into the basis states $ij \to \ket{ij}$ for $i,j = 0,1$. Recall that we had previously considered a circuit that took the state $\ket{00}$ to $\ket{\Phi^{+}}$. That circuit was given by $(CX) \circ (H \otimes I)$, which is precisely the same as the above protocol, in reverse order, if Alice wishes to transmit the two bits $00$. It is easy to see that $(CX)^{2} = I = ( H\otimes I)^{2}$, so that $( ( CX ) \otimes ( H \otimes I) )^{-1} = (H \otimes I ) \otimes (CX)$ Putting it together, we get</p>
+<p>$$
+\ket{00} \xrightarrow{ (CX) \circ (H \otimes I) }  \ket{\Phi^{+}} \xrightarrow{  (H \otimes I) \circ (CX) } \ket{00}  
+$$</p>
+<p>The other pairs of classical bits get encoded into the other computational basis elements $\ket{01}$, $\ket{10}$ and $\ket{11}$. When passing these states into the Bell state preparation circuit, they get mapped to the corresponding bell state (Which are the states that Alice prepares for Bob before she sends her qubit to him). That is,</p>
+<p>$$\ket{00} \to \frac{\ket{00} + \ket{11}}{\sqrt{2}} $$
+$$\ket{01} \to \frac{ \ket{10} + \ket{01} }{\sqrt{2}}$$
+$$\ket{10} \to  \frac{ \ket{00} - \ket{11} }{\sqrt{2}}$$
+$$\ket{11} \to \frac{ -\ket{10} + \ket{01} }{\sqrt{2}}$$</p>
+<p>So, to recover the correct state which encode the classical bits, all Bob has to do is uncompute (i.e. run this state preparation circuit backwards) the Bell state preparation circuit.</p>
+<p>Note that an implicit assumption that is made here is that both Alice and Bob have a consistently chosen computational basis for their qubits. That is, there is no ambiguity in how the classical bit strings are encoded as quantum states.</p>
+<h4 id="-Teleportation-"><b> Teleportation </b><a class="anchor-link" href="#-Teleportation-">¶</a></h4><p>Now we describe the teleportation protocol. Suppose that Alice has a qubit $\ket{\phi} = a \ket{0} + b \ket{1}$ whose state she wants to send to Bob, using only the classical communication of 2 classical bits to Bob. The rough idea here is that the EPR pair, together with the qubit $\ket{\phi}$, will form a $3$-qubit joint system. Alice has access to 2 out of the 3 qubits in this joint system. Then, Alice can entangle $\ket{\phi}$ with her half of the EPR pair by passing these qubits through appropriate gates. Afterwards, Alice can perform a (partial) measurement operation by measuring the 2 qubits in her possession. This will put the $3$-qubit joint system into a specific post-measurement state. By transmitting Alice's measurement results, Bob will be able to recover the state $\ket{\phi}$ with the qubit in his possession by applying an appropriate gate to it, conditioned on the classical information received from Alice.</p>
+<h5 id="-What-Alice-does:-"><u> What Alice does: </u><a class="anchor-link" href="#-What-Alice-does:-">¶</a></h5><p>Together with Alice's qubit $\ket{\phi}$, the starting state of the $3$-qubit joint system when the protocol begins is given by
+$$
+\ket{\phi} \otimes \ket{\Phi^{+}} = \frac{1}{\sqrt{2}}( a \ket{0} \otimes (  \ket{00} + \ket{11} ) + b \ket{1} \otimes (\ket{00} + \ket{11} )  )
+$$
+$$
+= \frac{1}{\sqrt{2}} ( a \ket{000} + a \ket{011 } + b \ket{100} + b \ket{111} )
+$$</p>
+<p>Then, Alice can apply a $CX \otimes I$ followed by a $H \otimes I \otimes I$ gate to the 2 qubits of the $3$-qubit system that are in her possession. The result of this will be:</p>
+<p>$$
+( H \otimes I \otimes I )( CX \otimes I ) ( \ket{\phi} \otimes \ket{\Phi^{+}} ) = ( H \otimes I \otimes I ) (   \frac{1}{\sqrt{2}} ( a \ket{000} + a \ket{011 } + b \ket{110} + b \ket{101} )    )
+$$
+$$
+= \frac{1}{2} \Big( a ( \ket{000} + \ket{011} + \ket{100} + \ket{111} ) + b ( \ket{010} + \ket{001} - \ket{110} - \ket{101} )    \Big)
+$$</p>
+<p>$$
+= \frac{1}{2} \Big(  \ket{00} ( a \ket{0} + b \ket{1} ) + \ket{01} ( a \ket{1} + b \ket{0} ) + \ket{10} (  a \ket{0} - b \ket{1} ) + \ket{11} ( a \ket{1} - b \ket{0} )     \Big)
+$$</p>
+<p>Notice that even though Alice has only applied gates to the 2 qubits in her possession, we have in fact acted on Bob's state in a non-trivial manner (by virtue of Bob's qubit being entangled with Alice's qubit). Now, if Alice measures her two qubits, she will obtain one of the four computational basis states $\ket{00}$, $\ket{01}$, $\ket{10}$ and $\ket{11}$ with equal probability. The joint system in the corresponding post measurement state of either  $\ket{00} ( a \ket{0} + b \ket{1} )$ , $\ket{01} ( a \ket{1} + b \ket{0} )$ , $\ket{10} (  a \ket{0} - b \ket{1} )$  or $\ket{11} ( a \ket{1} - b \ket{0} )$. That is, Bob's qubit will then be in one of the four states: $( a \ket{0} + b \ket{1} )$ , $( a \ket{1} + b \ket{0} )$,  $(  a \ket{0} - b \ket{1} )$, or $( a \ket{1} - b \ket{0} )$.</p>
+<h5 id="-What-Bob-does:-"><u> What Bob does: </u><a class="anchor-link" href="#-What-Bob-does:-">¶</a></h5><p>As Alice's actions has prepared Bob's qubit to be in one of four possible states, Bob can recover the state $\ket{\phi} = a \ket{0} + b \ket{1}$ for his qubit, if Alice transmits the measurement results to Bob.</p>
+<table>
+<thead>
+<tr>
+<th>Bits from Alice</th>
+<th>Bob's qubit state</th>
+<th>Gate to apply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>$a\ket{0} + b \ket{1}$</td>
+<td>$I$</td>
+</tr>
+<tr>
+<td>01</td>
+<td>$a \ket{1} + b \ket{0}$</td>
+<td>$X$</td>
+</tr>
+<tr>
+<td>10</td>
+<td>$a \ket{0} - b \ket{1}$</td>
+<td>$Z$</td>
+</tr>
+<tr>
+<td>11</td>
+<td>$ a \ket{1} - b \ket{0}$</td>
+<td>$Y  = XZ$</td>
+</tr>
+</tbody>
+</table>
+<p>It is easy to see that after Bob applies the appropriate gate to his qubit, the resulting qubit state will always be $\ket{\phi} = a \ket{0} + b \ket{1}$. Note that
+Alice no longer has possession of a qubit in the state $\ket{\phi}$ -- instead, her 2 qubits will together be in one of the four computational basis states.</p>
 <!-- Let's consider what happens if we take a partial measurement of the Bell state $\ket{\Phi^{+}}$. That is, we can first measure $\ket{\Phi^{+}}$ with respect to the observable $Z \otimes I$ and then consider the resulting post measurement state.   -->
 </div>
 </div>
