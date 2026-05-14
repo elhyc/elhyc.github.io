@@ -7826,9 +7826,21 @@ we can flip it around and ask how our understanding of "physical reality" inform
 <h2 id="A-whirl-wind-through-quantum-formalism,-and-the-Qubit">A whirl-wind through quantum formalism, and the Qubit<a class="anchor-link" href="#A-whirl-wind-through-quantum-formalism,-and-the-Qubit">¶</a></h2><p>A quantum description of physical systems is carried out with quantum formalism. Quantum formalism provides language for us to describe
 physical states, interaction between states and "measurements" of states.</p>
 <h3 id="The-postulates-of-quantum-mechanics">The postulates of quantum mechanics<a class="anchor-link" href="#The-postulates-of-quantum-mechanics">¶</a></h3><p><u> Postulate 1:  States </u></p>
-<p>A state is a complete description of a physical system. Mathematically speaking, a state is a vector in some Hilbert space $\mathcal{H}$. The Hilbert space $\mathcal{H}$ is referred to as the state space. We will see shortly that while we consider individual vectors
-to be "states", that does not mean that all states are physically distinguishable. Some authors will define a state to be a ray in $\mathcal{H}$ as states that are along a common ray are not physically distinguishable. (You can think of this as a metaphysical style choice: what does it mean for something to <em>exist</em>?)</p>
-<p>So, states live in a vector space. But we also have an inner product $\langle - , - \rangle_{\mathcal{H}}$. One can think of the inner product as providing the formalism for characterizing the distinguishability of different states. If we consider classical information states to be encoded by bitstrings in $\mathbb{F}_{2}^{n}$, then Hamming distance between $a_{1} \cdots a_{n}$ and $b_{1} \cdots b_{n}$ can provide a measure for how different these bitstrings are. For example, $011$ and $010$ have Hamming distance $1$ from each other -- measured by the number of differing bits. Complementary bitstrings (for example, $000$ and $111$) are maximally distant from each other with respect to Hamming distance. Ultimately, a single classical bit can only be the same or different from another classical bit. For quantum states, we have a similar but more refined notion of state separation, and this is modelled by the inner product $\langle -,- \rangle_{\mathcal{H}}$ attached to the Hilbert space $\mathcal{H}$. For example, the notion of orthogonality allows us to express when two states are "maximally distinct".</p>
+<p>A state is a complete description of a physical system. Mathematically speaking, a state is a <em>ray</em> in some Hilbert space $\mathcal{H}$. The Hilbert space $\mathcal{H}$ is referred to as the state space. By a ray in a vector space, we simply mean equivalence classes of vectors in $\mathcal{H}$ defined by the equivalence relation of being scalar multiples of each other. Any such ray will always have a unique representative with unit norm, so we may freely identify rays in $\mathcal{H}$ with unit vectors in $\mathcal{H}$ modulo multiplication by $e^{i\theta}$ (i.e. up to a phase factor)</p>
+<!-- 
+We will see shortly that while we consider individual vectors
+to be "states", that does not mean that all states are physically distinguishable. Some authors will define a state to be a ray in $\mathcal{H}$ as states that are along a common ray are not physically distinguishable. We will qualify what we mean by "physically distinguishable" when we get the the third postulate about observables. -->
+<p>So, states can always be represented as vectors in a Hilbert space (which is a vector space). But on this Hilbert space, we also have an inner product $\langle - , - \rangle_{\mathcal{H}}$. However, taking the inner product between two states may depend on the choice of representative we take. Indeed, if we have two representatives $u$ and $v$, we have generally have that</p>
+<p>$$
+\langle u , v \rangle \neq \langle e^{i \theta_{1}} u , e^{ i \theta_{2}} v \rangle = e^{i (\theta_{1} - \theta_{2} ) } \langle u, v \rangle
+$$</p>
+<p>Regardless, the <em>complex norm</em> of the inner product between states is well defined. Since $| e^{i \theta} | = 1$ for any $\theta \in \mathbb{R}$:</p>
+<p>$$
+| \langle u , v \rangle | =  | \langle e^{i \theta_{1}} u , e^{ i \theta_{2}} v \rangle | = | e^{i (\theta_{1} - \theta_{2} ) }| \cdot | \langle u, v \rangle |  
+$$</p>
+<p><b> Therefore, the inner product between states is well-defined up to a global phase factor.  </b></p>
+<p>One can think of the inner product as providing the formalism for characterizing the distinguishability of different states. If we consider classical information states to be encoded by bitstrings in $\mathbb{F}_{2}^{n}$, then Hamming distance between $a_{1} \cdots a_{n}$ and $b_{1} \cdots b_{n}$ can provide a measure for how different these bitstrings are. For example, $011$ and $010$ have Hamming distance $1$ from each other -- measured by the number of differing bits. Complementary bitstrings (for example, $000$ and $111$) are maximally distant from each other with respect to Hamming distance. Ultimately, a single classical bit can only be the same or different from another classical bit. For quantum states, we have a similar but more refined notion of state separation, and this is modelled by the inner product $\langle -,- \rangle_{\mathcal{H}}$ attached to the Hilbert space $\mathcal{H}$. For example, the notion of orthogonality allows us to express when two states are "maximally distinct".  Note that orthogonality does not depend on choices of representative vectors in $\mathcal{H}$ of states, and so it is well-defined for states.</p>
+<p>It is common to blur the line between a state being an equivalence class and representatives of states. When we speak of states, we will often equate the two points of view, with the understanding that states can be represented by unit vectors <em>up to a phase factor</em>.</p>
 <hr/>
 <h4 id="Ket-notation:">Ket notation:<a class="anchor-link" href="#Ket-notation:">¶</a></h4><p>As you have probably seen before, quantum theorists like to use the Dirac Bra-Ket notation. The notation is inspired by the Riesz representation, in that the inner product gives us an identification between an inner product space and its dual space  via the inner product. In Bra-Ket notation, state vectors are written as $\ket{\psi}$ and dual vectors are written as $\bra{\psi}$ (where $\bra{\psi}$ is dual to $\ket{\psi}$). This notation makes a lot of sense, in that $\bra{\psi} \ket{\psi} = \langle \psi, \psi \rangle_{\mathcal{H}} = | \psi |_{\mathcal{H}}^{2}$, and $\bra{\phi} \ket{\psi} = \langle \phi, \psi \rangle_{\mathcal{H}}$.</p>
 <hr/>
@@ -7843,7 +7855,7 @@ to be "states", that does not mean that all states are physically distinguishabl
 Postulate 2: Dynamics</u>
 <p>Time evolution in quantum mechanics is described by a unitary operator. Equivalently, the time evolution of a quantum mechanical system is governed by Schroedinger's equation, for some self-adjoint matrix $H(t)$ (the Hamiltionian).</p>
 <p>We've already alluded to a central concept above: as long as we properly keep track of everything involved in a physical system, all of our physical processes are reversible. This is what happens if we are dealing with a <em>closed</em> quantum system. Of course, in reality, we are constantly disregarding "insignificant" physical signals -- we should also have a way to model what is happening to a physical system in a scenario like this.</p>
-<p>For example, if we are truly serious about accounting for literally all physical processes in our formalism, let's imagine what happens when an observer makes an observation, or takes a measurement. When taking a measurement of a quantum system, some kind of apparatus is set up (which itself is also some kind of quantum system, possibly macro in scale), interacts with the system of interest, and the the resulting state of the apparatus system somehow encodes or represents the reading of some kind of measurement. After the measurement is done, the original quantum system is usually considered <em>without</em> the record of its interaction with the measuring apparatus (otherwise, we'd have to account for every measurement device the system has ever interacted with over all time -- past, present or future). Then, it seems like we are precisely violating the conditions that convinced us that all time evolution should be unitary -- it seems that we are (intentionally) discarding information about a quantum system when taking a measurement. So, when a quantum system $\mathcal{H}$ goes through a "measurement process" or "observation process", a possibly non-unitary operation $\mathcal{H} \rightarrow \mathcal{H'}$ is applied to the system at hand.</p>
+<p>For example, if we are truly serious about accounting for literally all physical processes in our formalism, let's imagine what happens when an observer makes an observation, or takes a measurement. When taking a measurement of a quantum system, some kind of apparatus is set up (which itself is also some kind of quantum system, possibly macro in scale), interacts with the system of interest, and the resulting state of the apparatus system somehow encodes or represents the reading of some kind of measurement. After the measurement is done, the original quantum system is usually considered <em>without</em> the record of its interaction with the measuring apparatus (otherwise, we'd have to account for every measurement device the system has ever interacted with over all time -- past, present or future). Then, it seems like we are precisely violating the conditions that convinced us that all time evolution should be unitary -- it seems that we are (intentionally) discarding information about a quantum system when taking a measurement. So, when a quantum system $\mathcal{H}$ goes through a "measurement process" or "observation process", a possibly non-unitary operation $\mathcal{H} \rightarrow \mathcal{H'}$ is applied to the system at hand.</p>
 <p>Hopefully it is apparent at this point that it is important it consider non-unitary operations acting on quantum systems as part of the quantum formalism. There is a way to formalize this properly through the concept of open quantum systems, and through the language of <em>quantum channels</em> and <em>quantum operations</em>. While there is indeed a way to characterize measurements of a quantum system through the intertwining of a system with an auxiliary system (considered as an "apparatus system") and then discarding or "tracing out" the apparatus system from the composite intertwined system, it can be less cumbersome and practical to include the notion of measurement as part of the postulates of quantum mechanics. If there is extra time, we may revisit this point of view with open quantum systems later.</p>
 <u>
 Postulate 3A: Observables </u>
@@ -7879,6 +7891,7 @@ As a preview towards the things to come, we may recall that we can represent cla
 <p>Where does the randomness come from?
 Recall that we previously described a measurement scenario for a quantum system $\mathcal{H}$ in terms of "intertwining" a quantum system with some kind of auxiliary apparatus system, and then "tracing out" or discarding the apparatus system from consideration. There is a certain coordinate-free canonical operation, defined for a joint/composite system (see the next postulate for the definition of a composite system) composed of the quantum system at hand and the apparatus system, called the <em>partial trace</em>. You can kind of think of this as "integrating out" the apparatus system, or taking a marginal probability summing out the system from consideration. This is all to say that when we discard an auxiliary system from consideration, we must do this in a canonical manner (or else we run the risk of introducing a coordinate-dependent notion). Inevitably, the result of the discarding of an auxiliary system from consideration truly does depend on the state of the auxiliary system itself. With no access to the auxiliary system (we've discarded it from consideration), what is left for the quantum system in consideration is a probability distribution over the resulting states that may occur from the process of tracing out the auxiliary system.</p>
 </blockquote>
+<!-- Note that if two states differ by only by a multiplicative constant, then   -->
 <p>Finally, we come to our final quantum mechanical postulate (for now). This postulate is concerned with describing <em>joint</em> quantum systems: given quantum systems $\mathcal{H}_{A}$ and $\mathcal{H}_{B}$, what is the quantum system formed by considering both systems as part of a composite system?</p>
 <u>
 Postulate 4: Composite Systems
@@ -8523,6 +8536,23 @@ $$</p>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15a6b31b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$$\renewcommand{\ket}[1]{|#1\rangle}$$
+$$\renewcommand{\bra}[1]{\langle#1|}$$</p>
+<h4 id="An-important-side-bar:-the-no-cloning-theorem">An important side-bar: the no-cloning theorem<a class="anchor-link" href="#An-important-side-bar:-the-no-cloning-theorem">¶</a></h4><p>Now that we have become more acquainted with unitary evolution of quantum states, you may wonder what kinds of transformations are <em>not</em> permitted by the quantum mechanical postulates? This leads us to the famous "no-cloning theorem". It simply states that in a closed quantum mechanical system, the "copying" of the quantum state from one system to another is not permitted.
+In the context of qubit systems, we can say something more precisely. Suppose that $\mathcal{H}(2)$ is a $2$-qubit system, then there does not exist a unitary transformation $U$ and qubit states $\ket{\psi}$, $\ket{\phi}$ such that</p>
+<p>$$
+U ( \ket{\psi} \otimes \ket{\phi} ) = \ket{\psi} \otimes \ket{\psi}
+$$</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4eb763c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8641,7 +8671,10 @@ $$\renewcommand{\bra}[1]{\langle#1|}$$
 Why is the Bell state $\ket{\Phi^{+}}$ called an entangled state? Recall that a tensor in the tensor product $\mathcal{H}_{1} \otimes \mathcal{H}_{2} \otimes \cdots \otimes \mathcal{H}_{k}$ is <em>decomposable</em> is it can be written in the form $v_{1} \otimes v_{2} \cdots \otimes v_{k}$ for vectors $v_{i} \in \mathcal{H}_{i}$. In the interpretation of quantum mechanics, this is to say that a state in a composite system, can be written as $k$ different states $v_{1},\cdots, v_{k}$ independently occuring in each state space $\mathcal{H}_{i}$. If a tensor is not decomposable, this means that we are considering a state of a composite system that cannot be expressed in terms of a composition of $k$ individual states from the systems $\mathcal{H}_{i}$.</p>
 <p>So, when a composite system (such as a $2$-qubit system) is in an entangled state, then the joint state cannot be expressed as a product of states of the individual systems that make up the composite system.</p>
 <h3 id="More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">More fun with entanglement: dense coding and quantum "teleportation"<a class="anchor-link" href="#More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">¶</a></h3><p>To illustrate more of the non-trivial novelty that comes along with entanglement, we now explain two popular applications of the Bell state: dense coding and quantum teleportation. Dense coding and quantum teleportation are sort of orthogonal to each other. Dense coding is about transmitting $2$ classical bits worth of information through the transmission of a single qubit, when the sender and receiver already share a pair of entangled qubits (in a Bell state together). Quantum teleportation is about using $2$ classical bits of information in order to transmit the entire state of a qubit.
-The fact that teleportation is possible is interesting: in spite of the <em>no-cloning theorem</em>, it is still possible to transmit the state of an unknown qubit to a receiver. Note that we can infer from the no-cloning theorem that when the qubit is transmitted to the reciever, the original qubit carried by the sender must be in a different state by the end of the process.</p>
+The fact that teleportation is possible is interesting: in spite of the <em>no-cloning theorem</em> (see the below side-bar), it is still possible to transmit the state of an unknown qubit to a receiver. Note that we can infer from the no-cloning theorem that when the qubit is transmitted to the reciever, the original qubit carried by the sender must be in a different state by the end of the process.</p>
+<blockquote>
+<p>Sidebar: The no-cloning theorem.</p>
+</blockquote>
 <p>The schematic for both protocols are similar, and have the same initial set-up. In order to execute these protocols, Alice (the sender) and Bob (the receiver) must initially be sharing a pair of qubits that have been prepared in a joint system to be in a Bell state. That is, suppose we have a pair of qubits, and we put the composite system into the state</p>
 <p>$$
 \ket{\Phi^{+}} = \frac{ \ket{00} + \ket{11} }{\sqrt{2}}.
@@ -8760,6 +8793,110 @@ $$</p>
 <p>It is easy to see that after Bob applies the appropriate gate to his qubit, the resulting qubit state will always be $\ket{\phi} = a \ket{0} + b \ket{1}$. Note that
 Alice no longer has possession of a qubit in the state $\ket{\phi}$ -- instead, her 2 qubits will together be in one of the four computational basis states.</p>
 <!-- Let's consider what happens if we take a partial measurement of the Bell state $\ket{\Phi^{+}}$. That is, we can first measure $\ket{\Phi^{+}}$ with respect to the observable $Z \otimes I$ and then consider the resulting post measurement state.   -->
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=918eb29a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<hr/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6647f2d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Some-more-examples-of-quantum-circuits">Some more examples of quantum circuits<a class="anchor-link" href="#Some-more-examples-of-quantum-circuits">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95d2a8b5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="SWAP-gate">SWAP gate<a class="anchor-link" href="#SWAP-gate">¶</a></h4><p>The SWAP gate can be defined as a $2$-qubit transformation which acts on a $2$-qubit state in the following way:</p>
+<p>$$
+\ket{ q_{1} q_{2} } \mapsto \ket{ q_{2} q_{1} }
+$$</p>
+<p>For example, $\ket{10} \mapsto \ket{01}$. Note that this is not the same thing as an $X$-gate!</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5020642a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.quantum_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">Statevector</span>
+
+<span class="n">swap_circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">swap_circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">swap_circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">swap_circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">swap_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'mpl'</span><span class="p">)</span>
+
+
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">swap_circuit</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">statevector</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span> <span class="n">qc</span> <span class="p">)</span>
+
+
+<span class="n">statevector</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'Latex'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99e61f03">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Mod-2-carry-adder">Mod 2 carry adder<a class="anchor-link" href="#Mod-2-carry-adder">¶</a></h4><p>Let's consider a circuit that acts on a $3$-qubit state as follows:</p>
+<p>$$
+\ket{ c,a,b } \mapsto \ket{c, a, (a + b + c)\mod{2 }}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=137e174e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adder_circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">adder_circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">adder_circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">adder_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'mpl'</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
