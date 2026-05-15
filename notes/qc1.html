@@ -8672,9 +8672,6 @@ Why is the Bell state $\ket{\Phi^{+}}$ called an entangled state? Recall that a 
 <p>So, when a composite system (such as a $2$-qubit system) is in an entangled state, then the joint state cannot be expressed as a product of states of the individual systems that make up the composite system.</p>
 <h3 id="More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">More fun with entanglement: dense coding and quantum "teleportation"<a class="anchor-link" href="#More-fun-with-entanglement:-dense-coding-and-quantum-%22teleportation%22">¶</a></h3><p>To illustrate more of the non-trivial novelty that comes along with entanglement, we now explain two popular applications of the Bell state: dense coding and quantum teleportation. Dense coding and quantum teleportation are sort of orthogonal to each other. Dense coding is about transmitting $2$ classical bits worth of information through the transmission of a single qubit, when the sender and receiver already share a pair of entangled qubits (in a Bell state together). Quantum teleportation is about using $2$ classical bits of information in order to transmit the entire state of a qubit.
 The fact that teleportation is possible is interesting: in spite of the <em>no-cloning theorem</em> (see the below side-bar), it is still possible to transmit the state of an unknown qubit to a receiver. Note that we can infer from the no-cloning theorem that when the qubit is transmitted to the reciever, the original qubit carried by the sender must be in a different state by the end of the process.</p>
-<blockquote>
-<p>Sidebar: The no-cloning theorem.</p>
-</blockquote>
 <p>The schematic for both protocols are similar, and have the same initial set-up. In order to execute these protocols, Alice (the sender) and Bob (the receiver) must initially be sharing a pair of qubits that have been prepared in a joint system to be in a Bell state. That is, suppose we have a pair of qubits, and we put the composite system into the state</p>
 <p>$$
 \ket{\Phi^{+}} = \frac{ \ket{00} + \ket{11} }{\sqrt{2}}.
@@ -8814,7 +8811,7 @@ Alice no longer has possession of a qubit in the state $\ket{\phi}$ -- instead, 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Some-more-examples-of-quantum-circuits">Some more examples of quantum circuits<a class="anchor-link" href="#Some-more-examples-of-quantum-circuits">¶</a></h3>
+<h3 id="Some-more-examples-of-quantum-gates-and-circuits">Some more examples of quantum gates and circuits<a class="anchor-link" href="#Some-more-examples-of-quantum-gates-and-circuits">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8897,6 +8894,17 @@ $$</p>
 <span class="n">adder_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'mpl'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=09c02113">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Rotation-gates">Rotation gates<a class="anchor-link" href="#Rotation-gates">¶</a></h4>
 </div>
 </div>
 </div>
